@@ -13,3 +13,8 @@ VIOLATION - violationName, description, sanction
 violationStatus(id)
 severity(id)
 
+
+http = controllers
+models
+database = migrations
+routes = api

@@ -46,36 +46,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"guiansumbi@gmail.com\",\r\n    \"password\": \"admin123\"\r\n}",
+							"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/login/",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"login",
-								""
-							],
-							"query": [
-								{
-									"key": "",
-									"value": null,
-									"disabled": true
-								}
-							]
-						}
+						"url": "http://127.0.0.1:8000/api/login/"
 					},
 					"response": []
 				},
@@ -118,7 +96,8 @@
 					"name": "get_all_users",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/get-users/"
 					},
 					"response": []
 				},
@@ -155,31 +134,98 @@
 					"name": "get_all_students",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/get-students/"
 					},
 					"response": []
 				},
 				{
 					"name": "add_student",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{vault:authentication-secret}}"
+							}
+						},
 						"method": "POST",
-						"header": []
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Lawrence\",\r\n    \"middle_name\": \"Parba\",\r\n    \"last_name\": \"Sumbi\",\r\n    \"id_number\": \"\",\r\n    \"course_id\": 1,\r\n    \"year_level_id\": 2,\r\n    \"section_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/add-student/"
 					},
 					"response": []
 				},
 				{
 					"name": "edit_student",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{authentication-secret}}"
+							}
+						},
 						"method": "PUT",
-						"header": []
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/edit-student/"
 					},
 					"response": []
 				},
 				{
 					"name": "delete_student",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{authentication-secret}}"
+							}
+						},
 						"method": "DELETE",
-						"header": []
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/delete-student/2"
 					},
 					"response": []
 				}
@@ -191,6 +237,12 @@
 				{
 					"name": "get_all_violations",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{authentication-secret}}"
+							}
+						},
 						"method": "GET",
 						"header": []
 					},
