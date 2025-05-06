@@ -1,0 +1,15 @@
+USER - first_name, last_name, contact_number, email, password
+role(id)
+user_status(id)
+
+
+STUDENT - stud_firstname, stud_lastname, stud_address, stud_contactnumber
+program(id)
+section(id)
+yearlevel(id)
+
+
+VIOLATION - violationName, description, sanction
+violationStatus(id)
+severity(id)
+
