@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('role_id')->constrained('roles')->onDelete('cascade');
             $table->foreignId('user_status_id')->constrained('user_statuses')->onDelete('cascade');
             $table->string('first_name');
-            $table->string('middle_name')->nullable();
             $table->string('last_name');
+            $table->string('contact_number', 20);  // Added contact_number
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -31,6 +31,7 @@ return new class extends Migration
             [
                 'first_name' => 'Admin',
                 'last_name' => 'Admin',
+                'contact_number' => '09123456789', // Added contact_number for seeding
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('password'),
                 'role_id' => 1,

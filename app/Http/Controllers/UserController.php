@@ -17,8 +17,8 @@ class UserController extends Controller
     public function addUser(Request $request){
         $request->validate([
             'first_name' => ['required', 'string', 'max:255'],
-            'middle_name' => ['nullable', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
+            'contact_number' => ['required', 'string', 'max:20'],
             'email' => ['required', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
             'role_id' => ['required', 'exists:roles,id'],
@@ -27,8 +27,8 @@ class UserController extends Controller
 
         $user = User::create([
             'first_name' => $request->first_name,
-            'middle_name' => $request->middle_name,
             'last_name' => $request->last_name,
+            'contact_number' => $request->contact_number,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role_id' => $request->role_id,
@@ -41,8 +41,8 @@ class UserController extends Controller
     public function editUser(Request $request, $id){
         $request->validate([
             'first_name' => ['required', 'string', 'max:255'],
-            'middle_name' => ['nullable', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
+            'contact_number' => ['required', 'string', 'max:20'],
             'email' => ['required', 'email', 'max:255', 'unique:users,email,' . $id],
             'role_id' => ['required', 'exists:roles,id'],
             'user_status_id' => ['required', 'exists:user_statuses,id'],
@@ -56,8 +56,8 @@ class UserController extends Controller
 
         $user->update([
             'first_name' => $request->first_name,
-            'middle_name' => $request->middle_name,
             'last_name' => $request->last_name,
+            'contact_number' => $request->contact_number,
             'email' => $request->email,
             'role_id' => $request->role_id,
             'user_status_id' => $request->user_status_id,

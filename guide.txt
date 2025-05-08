@@ -14,7 +14,11 @@ violationStatus(id)
 severity(id)
 
 
-http = controllers
+http controllers
 models
-database = migrations
-routes = api
+database migrations
+routes api
+
+Minor Violation
+Moderate Violation
+Major Violation
