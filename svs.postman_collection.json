@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a157caea-08a4-433a-b92c-9c3c9c3507e6",
+		"_postman_id": "2e9e7621-1c6a-44bc-b64e-f87ab0cea621",
 		"name": "svs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "44595189"
@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"first_name\": \"Lawrence\",\r\n    \"middle_name\": \"P.\",\r\n    \"last_name\": \"Sumbi\",\r\n    \"email\": \"guiansumbi@gmail.com\",\r\n    \"password\": \"admin123\",\r\n    \"confirm_password\": \"admin123\"\r\n}",
+							"raw": "{\r\n    \"first_name\": \"Lawrence\",\r\n    \"last_name\": \"Sumbi\",\r\n    \"contact_number\": \"09123456789\",\r\n    \"email\": \"guiansumbi@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"confirm_password\": \"password\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -105,7 +105,8 @@
 					"name": "add_user",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"url": ""
 					},
 					"response": []
 				},
@@ -113,7 +114,8 @@
 					"name": "edit_user",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": ""
 					},
 					"response": []
 				},
@@ -121,7 +123,8 @@
 					"name": "delete_user",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": ""
 					},
 					"response": []
 				}
@@ -244,7 +247,8 @@
 							}
 						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": ""
 					},
 					"response": []
 				},
@@ -252,7 +256,8 @@
 					"name": "add_violation",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"url": ""
 					},
 					"response": []
 				},
@@ -260,7 +265,8 @@
 					"name": "edit_violation",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": ""
 					},
 					"response": []
 				},
@@ -268,7 +274,8 @@
 					"name": "delete_violation",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": ""
 					},
 					"response": []
 				}

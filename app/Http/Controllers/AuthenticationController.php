@@ -12,8 +12,8 @@ class AuthenticationController extends Controller
     public function register(Request $request){
         $request->validate([
             'first_name' => ['required', 'string', 'max:255'],
-            'middle_name' => ['nullable', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
+            'contact_number' => ['required', 'string', 'max:20'],
             'email' => ['required', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
             'confirm_password' => ['required', 'same:password'],
@@ -21,15 +21,15 @@ class AuthenticationController extends Controller
 
         $user = User::create([
             'first_name' => $request->first_name,
-            'middle_name' => $request->middle_name,
             'last_name' => $request->last_name,
+            'contact_number' => $request->contact_number,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role_id' => 3, // Teacher
-            'user_status_id' => 1, // Active
+            'role_id' => 1,
+            'user_status_id' => 1,
         ]);
 
-        return response()->json(['message' => 'User created succesfully!', 'user' => $user]);
+        return response()->json(['message' => 'User created successfully!', 'user' => $user]);
     }
 
     public function login(Request $request){
@@ -46,12 +46,12 @@ class AuthenticationController extends Controller
 
         $token = $user->createToken('auth_token')->plainTextToken;
 
-        return response()->json(['message' => 'User logged in succesfully!', 'user' => $user, 'token' => $token]);
+        return response()->json(['message' => 'User logged in successfully!', 'user' => $user, 'token' => $token]);
     }
 
     public function logout(Request $request){
         $request->user()->tokens()->delete();
 
-        return response()->json(['message' => 'User logged out succesfully!']);
+        return response()->json(['message' => 'User logged out successfully!']);
     }
 }

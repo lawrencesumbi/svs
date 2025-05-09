@@ -19,8 +19,7 @@ return new class extends Migration
 
         $roles = [
             ['name' => 'Admin'],
-            ['name' => 'Principal'],
-            ['name' => 'Teacher'],
+            ['name' => 'User'],
         ];
 
         foreach($roles as $role){
