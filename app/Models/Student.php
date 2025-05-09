@@ -17,7 +17,7 @@ class Student extends Model
         'section_id',
         'address',
         'contact_number'
-    ];
+    ];  
 
     public function course(){
         return $this->belongsTo(Course::class);

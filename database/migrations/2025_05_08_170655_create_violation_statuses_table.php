@@ -20,7 +20,7 @@ return new class extends Migration
 
         // Insert predefined violation statuses
         DB::table('violation_statuses')->insert([
-            ['name' => 'Pending'],
+            ['name' => 'Ongoing'],
             ['name' => 'Resolved'],
         ]);
     }

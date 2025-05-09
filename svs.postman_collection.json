@@ -22,14 +22,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"first_name\": \"Lawrence\",\r\n    \"last_name\": \"Sumbi\",\r\n    \"contact_number\": \"09123456789\",\r\n    \"email\": \"guiansumbi@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"confirm_password\": \"password\"\r\n}",
+							"raw": "{\r\n    \"first_name\": \"Patricia\",\r\n    \"last_name\": \"Obaob\",\r\n    \"contact_number\": \"09123456789\",\r\n    \"email\": \"pat@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"confirm_password\": \"password\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://127.0.0.1:8000/api/register/"
+						"url": "{{baseUrl}}/api/register/"
 					},
 					"response": []
 				},
@@ -53,7 +53,7 @@
 								}
 							}
 						},
-						"url": "http://127.0.0.1:8000/api/login/"
+						"url": "{{baseUrl}}/api/login/"
 					},
 					"response": []
 				},
@@ -83,7 +83,7 @@
 								}
 							}
 						},
-						"url": "http://127.0.0.1:8000/api/logout/"
+						"url": "{{baseUrl}}/api/logout/"
 					},
 					"response": []
 				}
@@ -94,37 +94,124 @@
 			"item": [
 				{
 					"name": "get_all_users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{authentication-secret}}"
+							}
+						},
 						"method": "GET",
-						"header": [],
-						"url": "http://127.0.0.1:8000/api/get-users/"
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/get-users/"
 					},
 					"response": []
 				},
 				{
 					"name": "add_user",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{authentication-secret}}"
+							}
+						},
 						"method": "POST",
-						"header": [],
-						"url": ""
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Jaymaica\",\r\n    \"last_name\": \"Narvasa\",\r\n    \"contact_number\": \"09123456789\",\r\n    \"email\": \"jaymaica@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"role_id\": \"1\",\r\n    \"user_status_id\": \"1\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/add-user/"
 					},
 					"response": []
 				},
 				{
 					"name": "edit_user",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{authentication-secret}}"
+							}
+						},
 						"method": "PUT",
-						"header": [],
-						"url": ""
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Lawrence\",\r\n    \"last_name\": \"Parba\",\r\n    \"contact_number\": \"09123456789\",\r\n    \"email\": \"guiansumbi@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"role_id\": \"1\",\r\n    \"user_status_id\": \"1\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/edit-user/2"
 					},
 					"response": []
 				},
 				{
 					"name": "delete_user",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{authentication-secret}}"
+							}
+						},
 						"method": "DELETE",
-						"header": [],
-						"url": ""
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/delete-user/4"
 					},
 					"response": []
 				}
@@ -136,9 +223,21 @@
 				{
 					"name": "get_all_students",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{authentication-secret}}"
+							}
+						},
 						"method": "GET",
-						"header": [],
-						"url": "http://127.0.0.1:8000/api/get-students/"
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{baseUrl}}/api/get-students/"
 					},
 					"response": []
 				},
@@ -161,14 +260,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"first_name\": \"Lawrence\",\r\n    \"middle_name\": \"Parba\",\r\n    \"last_name\": \"Sumbi\",\r\n    \"id_number\": \"\",\r\n    \"course_id\": 1,\r\n    \"year_level_id\": 2,\r\n    \"section_id\": 1\r\n}",
+							"raw": "{\r\n    \"first_name\": \"Dray\",\r\n    \"last_name\": \"Misa\",\r\n    \"course_id\": 1,\r\n    \"year_level_id\": 2,\r\n    \"section_id\": 1,\r\n    \"address\": \"Naga\",\r\n    \"contact_number\": \"09123456789\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://127.0.0.1:8000/api/add-student/"
+						"url": "{{baseUrl}}/api/add-student/"
 					},
 					"response": []
 				},
@@ -191,14 +290,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n    \"first_name\": \"Dranreb\",\r\n    \"last_name\": \"Misa\",\r\n    \"course_id\": 1,\r\n    \"year_level_id\": 2,\r\n    \"section_id\": 1,\r\n    \"address\": \"Naga\",\r\n    \"contact_number\": \"09123456789\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://127.0.0.1:8000/api/edit-student/"
+						"url": "{{baseUrl}}/api/edit-student/1"
 					},
 					"response": []
 				},
@@ -239,6 +338,9 @@
 			"item": [
 				{
 					"name": "get_all_violations",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -247,35 +349,104 @@
 							}
 						},
 						"method": "GET",
-						"header": [],
-						"url": ""
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/get-violations/"
 					},
 					"response": []
 				},
 				{
 					"name": "add_violation",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{authentication-secret}}"
+							}
+						},
 						"method": "POST",
-						"header": [],
-						"url": ""
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"student_id\": \"1\",\r\n    \"violation_name\": \"Cheating\",\r\n    \"violation_description\": \"Having a cheatsheet during exam\",\r\n    \"violation_severity_id\": \"1\",\r\n    \"violation_sanction\": \"Zero Score\",\r\n    \"violation_status_id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/add-violation/"
 					},
 					"response": []
 				},
 				{
 					"name": "edit_violation",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{authentication-secret}}"
+							}
+						},
 						"method": "PUT",
-						"header": [],
-						"url": ""
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"student_id\": \"1\",\r\n    \"violation_name\": \"Cheating\",\r\n    \"violation_description\": \"Having a cheat sheet during exam\",\r\n    \"violation_severity_id\": \"1\",\r\n    \"violation_sanction\": \"Zero Score\",\r\n    \"violation_status_id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/edit-violation/1"
 					},
 					"response": []
 				},
 				{
 					"name": "delete_violation",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{authentication-secret}}"
+							}
+						},
 						"method": "DELETE",
-						"header": [],
-						"url": ""
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{baseUrl}}/api/delete-violation/1"
 					},
 					"response": []
 				}

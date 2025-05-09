@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 06, 2025 at 05:05 PM
+-- Generation Time: May 09, 2025 at 06:45 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -39,8 +39,8 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Bachelor of Science in Information Technology', '2025-05-06 05:09:46', '2025-05-06 05:09:46'),
-(2, 'Bachelor of Science in Computer Science', '2025-05-06 05:09:46', '2025-05-06 05:09:46');
+(1, 'Bachelor of Science in Information Technology', '2025-05-09 10:37:47', '2025-05-09 10:37:47'),
+(2, 'Bachelor of Science in Computer Science', '2025-05-09 10:37:47', '2025-05-09 10:37:47');
 
 -- --------------------------------------------------------
 
@@ -75,16 +75,19 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-(2, '2019_08_19_000000_create_failed_jobs_table', 1),
-(3, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(4, '2025_03_18_113751_create_roles_table', 1),
-(5, '2025_03_18_115400_create_user_statuses_table', 1),
-(6, '2025_03_19_083518_create_year_levels_table', 1),
-(7, '2025_03_19_083559_create_courses_table', 1),
-(8, '2025_03_19_083642_create_sections_table', 1),
-(9, '2025_03_19_083731_create_students_table', 1),
-(10, '2025_03_19_115400_create_users_table', 1);
+(79, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+(80, '2019_08_19_000000_create_failed_jobs_table', 1),
+(81, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(82, '2025_03_18_113751_create_roles_table', 1),
+(83, '2025_03_18_115400_create_user_statuses_table', 1),
+(84, '2025_03_19_083518_create_year_levels_table', 1),
+(85, '2025_03_19_083559_create_courses_table', 1),
+(86, '2025_03_19_083642_create_sections_table', 1),
+(87, '2025_03_19_083731_create_students_table', 1),
+(88, '2025_03_19_115400_create_users_table', 1),
+(89, '2025_05_08_170358_create_violation_severities_table', 1),
+(90, '2025_05_08_170655_create_violation_statuses_table', 1),
+(91, '2025_05_08_171317_create_violations_table', 1);
 
 -- --------------------------------------------------------
 
@@ -122,7 +125,7 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
-(2, 'App\\Models\\User', 1, 'auth_token', '17fb6dc35e4c0e9e56f571140e658518996c306acab22d3a7804d600ba7e1ce1', '[\"*\"]', '2025-05-06 08:57:31', NULL, '2025-05-06 08:11:01', '2025-05-06 08:57:31');
+(1, 'App\\Models\\User', 1, 'auth_token', '2ad32fd3f016c5ad2a04710bd220799cc7a1938049c59e1d43649e6381136cc7', '[\"*\"]', '2025-05-09 10:42:30', NULL, '2025-05-09 10:38:13', '2025-05-09 10:42:30');
 
 -- --------------------------------------------------------
 
@@ -142,9 +145,8 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', '2025-05-06 05:09:46', '2025-05-06 05:09:46'),
-(2, 'Principal', '2025-05-06 05:09:46', '2025-05-06 05:09:46'),
-(3, 'Teacher', '2025-05-06 05:09:46', '2025-05-06 05:09:46');
+(1, 'Admin', '2025-05-09 10:37:47', '2025-05-09 10:37:47'),
+(2, 'User', '2025-05-09 10:37:47', '2025-05-09 10:37:47');
 
 -- --------------------------------------------------------
 
@@ -164,10 +166,10 @@ CREATE TABLE `sections` (
 --
 
 INSERT INTO `sections` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'A', '2025-05-06 05:09:46', '2025-05-06 05:09:46'),
-(2, 'B', '2025-05-06 05:09:46', '2025-05-06 05:09:46'),
-(3, 'C', '2025-05-06 05:09:46', '2025-05-06 05:09:46'),
-(4, 'D', '2025-05-06 05:09:46', '2025-05-06 05:09:46');
+(1, 'A', '2025-05-09 10:37:48', '2025-05-09 10:37:48'),
+(2, 'B', '2025-05-09 10:37:48', '2025-05-09 10:37:48'),
+(3, 'C', '2025-05-09 10:37:48', '2025-05-09 10:37:48'),
+(4, 'D', '2025-05-09 10:37:48', '2025-05-09 10:37:48');
 
 -- --------------------------------------------------------
 
@@ -178,12 +180,12 @@ INSERT INTO `sections` (`id`, `name`, `created_at`, `updated_at`) VALUES
 CREATE TABLE `students` (
   `id` bigint UNSIGNED NOT NULL,
   `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `middle_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `course_id` bigint UNSIGNED NOT NULL,
   `year_level_id` bigint UNSIGNED NOT NULL,
   `section_id` bigint UNSIGNED NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact_number` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -192,8 +194,8 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `first_name`, `middle_name`, `last_name`, `id_number`, `course_id`, `year_level_id`, `section_id`, `created_at`, `updated_at`) VALUES
-(1, 'Lawrence', 'Parba', 'Sumbi', '001', 1, 2, 1, '2025-05-06 08:29:33', '2025-05-06 08:54:30');
+INSERT INTO `students` (`id`, `first_name`, `last_name`, `course_id`, `year_level_id`, `section_id`, `address`, `contact_number`, `created_at`, `updated_at`) VALUES
+(1, 'Dray', 'Misa', 1, 2, 1, 'Naga', '09123456789', '2025-05-09 10:38:32', '2025-05-09 10:38:32');
 
 -- --------------------------------------------------------
 
@@ -206,8 +208,8 @@ CREATE TABLE `users` (
   `role_id` bigint UNSIGNED NOT NULL,
   `user_status_id` bigint UNSIGNED NOT NULL,
   `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `middle_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact_number` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -220,9 +222,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `role_id`, `user_status_id`, `first_name`, `middle_name`, `last_name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'Admin', NULL, 'Admin', 'admin@gmail.com', NULL, '$2y$10$CfTdqRtuv2r9/41FBY/IVesIj3z/K8Nf447xOc/07s.xR/86m9QcC', NULL, '2025-05-06 05:09:46', '2025-05-06 05:09:46'),
-(2, 3, 1, 'Lawrence', 'P.', 'Sumbi', 'guiansumbi@gmail.com', NULL, '$2y$10$ZDeRjgWzHFeQVF.S6GzXOOKO3WiQZjbzJ3h56wgvBMH6QaRqEZ3eq', NULL, '2025-05-06 05:53:14', '2025-05-06 05:53:14');
+INSERT INTO `users` (`id`, `role_id`, `user_status_id`, `first_name`, `last_name`, `contact_number`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'Admin', 'Admin', '09123456789', 'admin@gmail.com', NULL, '$2y$10$YkYkaJK.SKdYQNa9VWbDQ.dSd8/NlCdn/ldScaYO32jimbZozU/hG', NULL, '2025-05-09 10:37:48', '2025-05-09 10:37:48');
 
 -- --------------------------------------------------------
 
@@ -242,8 +243,69 @@ CREATE TABLE `user_statuses` (
 --
 
 INSERT INTO `user_statuses` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Active', '2025-05-06 05:09:46', '2025-05-06 05:09:46'),
-(2, 'Inactive', '2025-05-06 05:09:46', '2025-05-06 05:09:46');
+(1, 'Active', '2025-05-09 10:37:47', '2025-05-09 10:37:47'),
+(2, 'Inactive', '2025-05-09 10:37:47', '2025-05-09 10:37:47');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `violations`
+--
+
+CREATE TABLE `violations` (
+  `id` bigint UNSIGNED NOT NULL,
+  `student_id` bigint UNSIGNED NOT NULL,
+  `violation_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `violation_description` text COLLATE utf8mb4_unicode_ci,
+  `violation_severity_id` bigint UNSIGNED NOT NULL,
+  `violation_sanction` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `violation_status_id` bigint UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `violation_severities`
+--
+
+CREATE TABLE `violation_severities` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `violation_severities`
+--
+
+INSERT INTO `violation_severities` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Minor Violation', NULL, NULL),
+(2, 'Moderate Violation', NULL, NULL),
+(3, 'Major Violation', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `violation_statuses`
+--
+
+CREATE TABLE `violation_statuses` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `violation_statuses`
+--
+
+INSERT INTO `violation_statuses` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Ongoing', NULL, NULL),
+(2, 'Resolved', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -263,10 +325,10 @@ CREATE TABLE `year_levels` (
 --
 
 INSERT INTO `year_levels` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, '1st Year', '2025-05-06 05:09:46', '2025-05-06 05:09:46'),
-(2, '2nd Year', '2025-05-06 05:09:46', '2025-05-06 05:09:46'),
-(3, '3rd Year', '2025-05-06 05:09:46', '2025-05-06 05:09:46'),
-(4, '4th Year', '2025-05-06 05:09:46', '2025-05-06 05:09:46');
+(1, '1st Year', '2025-05-09 10:37:47', '2025-05-09 10:37:47'),
+(2, '2nd Year', '2025-05-09 10:37:47', '2025-05-09 10:37:47'),
+(3, '3rd Year', '2025-05-09 10:37:47', '2025-05-09 10:37:47'),
+(4, '4th Year', '2025-05-09 10:37:47', '2025-05-09 10:37:47');
 
 --
 -- Indexes for dumped tables
@@ -322,7 +384,6 @@ ALTER TABLE `sections`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `students_id_number_unique` (`id_number`),
   ADD KEY `students_course_id_foreign` (`course_id`),
   ADD KEY `students_year_level_id_foreign` (`year_level_id`),
   ADD KEY `students_section_id_foreign` (`section_id`);
@@ -341,6 +402,29 @@ ALTER TABLE `users`
 --
 ALTER TABLE `user_statuses`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `violations`
+--
+ALTER TABLE `violations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `violations_student_id_foreign` (`student_id`),
+  ADD KEY `violations_violation_severity_id_foreign` (`violation_severity_id`),
+  ADD KEY `violations_violation_status_id_foreign` (`violation_status_id`);
+
+--
+-- Indexes for table `violation_severities`
+--
+ALTER TABLE `violation_severities`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `violation_severities_name_unique` (`name`);
+
+--
+-- Indexes for table `violation_statuses`
+--
+ALTER TABLE `violation_statuses`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `violation_statuses_name_unique` (`name`);
 
 --
 -- Indexes for table `year_levels`
@@ -368,19 +452,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sections`
@@ -392,18 +476,36 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_statuses`
 --
 ALTER TABLE `user_statuses`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `violations`
+--
+ALTER TABLE `violations`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `violation_severities`
+--
+ALTER TABLE `violation_severities`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `violation_statuses`
+--
+ALTER TABLE `violation_statuses`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -430,6 +532,14 @@ ALTER TABLE `students`
 ALTER TABLE `users`
   ADD CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `users_user_status_id_foreign` FOREIGN KEY (`user_status_id`) REFERENCES `user_statuses` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `violations`
+--
+ALTER TABLE `violations`
+  ADD CONSTRAINT `violations_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `violations_violation_severity_id_foreign` FOREIGN KEY (`violation_severity_id`) REFERENCES `violation_severities` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `violations_violation_status_id_foreign` FOREIGN KEY (`violation_status_id`) REFERENCES `violation_statuses` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

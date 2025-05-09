@@ -1,1 +1,1 @@
-https://.postman.co/workspace/My-Workspace~debee4b9-ec64-4d6c-81ea-2c2b484089ae/request/44595189-7ec62eb5-f36f-4273-837e-c9688a0ca3e2?action=share&creator=44595189&ctx=documentation&active-environment=44595189-73cb4ad9-f766-4a8c-b38e-3aa7810dd832
+https://.postman.co/workspace/My-Workspace~debee4b9-ec64-4d6c-81ea-2c2b484089ae/collection/44595189-2e9e7621-1c6a-44bc-b64e-f87ab0cea621?action=share&creator=44595189&active-environment=44595189-73cb4ad9-f766-4a8c-b38e-3aa7810dd832
